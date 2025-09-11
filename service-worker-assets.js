@@ -1,5 +1,5 @@
 self.assetsManifest = {
-  "version": "85uAOLaH",
+  "version": "HQZGiRzt",
   "assets": [
     {
       "hash": "sha256-CJqdE4CTT8LT5PE6lSmKmcsq/dTlw7BgJhPvfmSavlI=",
@@ -10,8 +10,8 @@ self.assetsManifest = {
       "url": "_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication/AuthenticationService.js"
     },
     {
-      "hash": "sha256-N3JId4PSWFxehwoNc61pX4shJ2pNYJ5H5DRm7FNolQ4=",
-      "url": "_framework/Alcamala.3pf77sx7ln.wasm"
+      "hash": "sha256-C/RdDjLyFyeZJtJwHDq1q9+PuPKRJyNLPgOcQpQX3es=",
+      "url": "_framework/Alcamala.tipr2w5prn.wasm"
     },
     {
       "hash": "sha256-4Wvs17oh4yftnyzKM1BSuNNzVYgK82eQ0xAc5nKzPS0=",
@@ -194,7 +194,7 @@ self.assetsManifest = {
       "url": "_framework/System.m0fu6d0eya.wasm"
     },
     {
-      "hash": "sha256-+wSawzbyqZ2FMxF1oX282tK3IchsL9nmfC7dxQRLB7U=",
+      "hash": "sha256-B0S1HH5ss0xlmnetH6462IMZgpRHMYnbx9POx9trE6Y=",
       "url": "_framework/blazor.boot.json"
     },
     {
