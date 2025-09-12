@@ -10,6 +10,8 @@ on:
 
 jobs:
   deploy-to-github-pages:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
     - name: Checkout [main] branch
@@ -23,8 +25,18 @@ jobs:
     - name: Publish .NET Core Project
       run: dotnet publish ./Alcamala/Alcamala.csproj -c:Release -p:GHPages=true -o release --nologo
 
-    - name: Commit wwwroot to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4
+    - name: Rewrite base href
+      uses: SteveSandersonMS/ghaction-rewrite-base-href@v1.1.0
       with:
-        BRANCH: gh-pages
-        FOLDER: release/wwwroot
+        html_path: release/wwwroot/index.html
+        base_href: /Alcamala/
+
+    - name: Add .nojekyll file
+      run: touch release/wwwroot/.nojekyll
+
+    - name: Commit wwwroot to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: ./release/wwwroot
