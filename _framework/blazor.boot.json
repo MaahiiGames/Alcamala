@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Alcamala",
   "resources": {
-    "hash": "sha256-v2InPeueVl3GlssYyiAevF4rrnMghkUrX+frIv/w59U=",
+    "hash": "sha256-AYdtiTS4Ml8j+7cloTLF4qRrvryZMYHlGRoFwhjfIeM=",
     "fingerprinting": {
       "Microsoft.AspNetCore.Authorization.zfmiaaqg8a.wasm": "Microsoft.AspNetCore.Authorization.wasm",
       "Microsoft.AspNetCore.Components.mdtibxew45.wasm": "Microsoft.AspNetCore.Components.wasm",
@@ -48,7 +48,7 @@
       "System.Text.RegularExpressions.3ddyst6dmo.wasm": "System.Text.RegularExpressions.wasm",
       "System.m0fu6d0eya.wasm": "System.wasm",
       "System.Private.CoreLib.fa8dco4iwx.wasm": "System.Private.CoreLib.wasm",
-      "Alcamala.tipr2w5prn.wasm": "Alcamala.wasm",
+      "Alcamala.lc5jsmfv1f.wasm": "Alcamala.wasm",
       "dotnet.js": "dotnet.js",
       "dotnet.native.9ih887ebfz.js": "dotnet.native.js",
       "dotnet.native.21mns4qp4i.wasm": "dotnet.native.wasm",
@@ -119,7 +119,7 @@
       "System.Text.Json.qurzvbczip.wasm": "sha256-woIGISrMaZpJo8Y/7ij1kAe6LbMYfvGoNsKYVFtbgOc=",
       "System.Text.RegularExpressions.3ddyst6dmo.wasm": "sha256-J0h0LpWzXEYF0E+lUOiWbLF6UobUv3nu0XKBs3nMIoQ=",
       "System.m0fu6d0eya.wasm": "sha256-hkGLo/MuT/FJ0Xf4XUL0D2VA4dZV532GHNB1JicxLko=",
-      "Alcamala.tipr2w5prn.wasm": "sha256-C/RdDjLyFyeZJtJwHDq1q9+PuPKRJyNLPgOcQpQX3es="
+      "Alcamala.lc5jsmfv1f.wasm": "sha256-K/oxkmsDZjyxHqN4FjQPdQW7tJEKOonn/4ZTohzjVso="
     }
   },
   "cacheBootResources": true,
