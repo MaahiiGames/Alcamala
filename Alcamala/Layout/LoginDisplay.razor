@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@inject NavigationManager Navigation
+@inject FirebaseService FirebaseService
+
+<AuthorizeView>
+    <Authorized>
+        Hello, @context.User.Identity?.Name!
+        <button class="nav-link btn btn-link" @onclick="BeginLogOutAsync">Log out</button>
+    </Authorized>
+    <NotAuthorized>
+        <a href="login">Log in</a>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code{
+
+    public async void BeginLogOutAsync()
+    {
+        await FirebaseService.LogOutAsync();
+        // Navigation.NavigateToLogout("authentication/logout");
+    }
+
+}

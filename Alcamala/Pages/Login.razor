@@ -1,0 +1,19 @@
+﻿@page "/login"
+
+@layout EmptyLayout
+
+@attribute [AllowAnonymous]
+
+<PageTitle>Login</PageTitle>
+
+<div class="login-page">
+
+    <ElysiumCard Title="Log in" Collapsible="true" Style="width: 500px; height: 500px;">
+        <ElysiumTextInput Label="Email" />
+        <ElysiumTextInput Label="Password" />
+
+        <ElysiumTextButton Text="Log in" OnClick="OnClickLogIn" />
+        <ElysiumTextButton Text="Log out" OnClick="OnClickLogOut" />
+    </ElysiumCard>
+
+</div>
