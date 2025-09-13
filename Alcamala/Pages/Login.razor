@@ -9,8 +9,8 @@
 <div class="login-page">
 
     <ElysiumCard Title="Log in" Collapsible="true" Style="width: 500px; height: 500px;">
-        <ElysiumTextInput Label="Email" />
-        <ElysiumTextInput Label="Password" />
+        <ElysiumTextInput Label="Email" @bind-Value="@_email" />
+        <ElysiumTextInput Label="Password" @bind-Value="@_password" />
 
         <ElysiumTextButton Text="Log in" OnClick="OnClickLogIn" />
         <ElysiumTextButton Text="Log out" OnClick="OnClickLogOut" />

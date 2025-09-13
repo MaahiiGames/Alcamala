@@ -10,7 +10,7 @@ public partial class Login
     [Inject] public required FirebaseService FirebaseService { get; set; }
     [Inject] public required FirebaseAuthenticationStateProvider AuthenticationStateProvider { get; set; }
 
-    private string _username = string.Empty;
+    private string _email = string.Empty;
     private string _password = string.Empty;
 
     protected override async Task OnInitializedAsync()
@@ -27,7 +27,7 @@ public partial class Login
 
     private async void OnClickLogIn()
     {
-        await FirebaseService.TryLogInAsync(_username, _password);
+        await FirebaseService.TryLogInAsync(_email, _password);
     }
 
     private void OnAuthenticationStateChanged(Task<AuthenticationState> task)

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.Extensions.Options;
@@ -10,14 +11,16 @@ namespace Alcamala.Services;
 public class FirebaseAuthenticationStateProvider : RemoteAuthenticationService<RemoteAuthenticationState, RemoteUserAccount, OidcProviderOptions>
 {
     private NavigationManager _navigationManager;
+    private ILocalStorageService _localStorageService;
 
     public FirebaseUser? CurrentUser { get; private set; }
 
     private ClaimsIdentity _identity = new();
 
-    public FirebaseAuthenticationStateProvider(IJSRuntime jsRuntime, IOptionsSnapshot<RemoteAuthenticationOptions<OidcProviderOptions>> options, NavigationManager navigation, AccountClaimsPrincipalFactory<RemoteUserAccount> accountClaimsPrincipalFactory, ILogger<RemoteAuthenticationService<RemoteAuthenticationState, RemoteUserAccount, OidcProviderOptions>>? logger) : base(jsRuntime, options, navigation, accountClaimsPrincipalFactory, logger)
+    public FirebaseAuthenticationStateProvider(IJSRuntime jsRuntime, IOptionsSnapshot<RemoteAuthenticationOptions<OidcProviderOptions>> options, NavigationManager navigation, AccountClaimsPrincipalFactory<RemoteUserAccount> accountClaimsPrincipalFactory, ILogger<RemoteAuthenticationService<RemoteAuthenticationState, RemoteUserAccount, OidcProviderOptions>>? logger, ILocalStorageService localStorageService) : base(jsRuntime, options, navigation, accountClaimsPrincipalFactory, logger)
     {
         _navigationManager = navigation;
+        _localStorageService = localStorageService;
     }
 
     public override Task<AuthenticationState> GetAuthenticationStateAsync()
@@ -25,7 +28,7 @@ public class FirebaseAuthenticationStateProvider : RemoteAuthenticationService<R
         return Task.FromResult(new AuthenticationState(new ClaimsPrincipal(_identity)));
     }
 
-    public void OnUserLogin(FirebaseUser user)
+    public async void OnUserLogin(FirebaseUser user)
     {
         CurrentUser = user;
 
@@ -39,6 +42,8 @@ public class FirebaseAuthenticationStateProvider : RemoteAuthenticationService<R
         _identity = new ClaimsIdentity(claims, "authentication");
 
         NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
+
+        await _localStorageService.SetItemAsync("email", user.Email);
 
         _navigationManager.NavigateTo("");
     }
