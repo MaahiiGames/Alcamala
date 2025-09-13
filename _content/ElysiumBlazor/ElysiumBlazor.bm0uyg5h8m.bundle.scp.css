@@ -1,0 +1,32 @@
+/* _content/ElysiumBlazor/Components/Buttons/ElysiumIconButton.razor.rz.scp.css */
+.elysium-icon-button[b-hi1qm6y2ev] {
+    border-radius: var(--elysium-border-radius-large);
+}
+/* _content/ElysiumBlazor/Components/Buttons/ElysiumTextButton.razor.rz.scp.css */
+/* _content/ElysiumBlazor/Components/Icons/ElysiumIcon.razor.rz.scp.css */
+.elysium-icon[b-i9qeimg8ls] {
+    width: 24px;
+    height: 24px;
+}
+/* _content/ElysiumBlazor/Components/Inputs/ElysiumTextInput.razor.rz.scp.css */
+/* _content/ElysiumBlazor/Components/UI/ElysiumCard.razor.rz.scp.css */
+.elysium-card[b-lfl4bk8pcc] {
+    border: 2px solid var(--elysium-color-primary);
+    border-radius: var(--elysium-border-radius-large);
+    padding: 10px;
+    background-color: var(--elysium-color-secondary);
+}
+
+.elysium-card-header[b-lfl4bk8pcc] {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+[b-lfl4bk8pcc] .collapse-icon.collapsed {
+    transform: rotate(90deg);
+}
+
+[b-lfl4bk8pcc] .collapse-icon.expanded {
+    transform: rotate(-90deg);
+}
