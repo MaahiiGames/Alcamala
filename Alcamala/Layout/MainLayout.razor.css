@@ -1,4 +1,43 @@
 .page {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+}
+
+div.app-logo {
+    height: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.app-logo img {
+    height: 64px;
+    width: 64px;
+}
+
+@media (max-width: 640.98px) {
+    .page {
+        flex-direction: column-reverse;
+    }
+
+    div.app-logo {
+        display: none;
+    }
+}
+
+main {
+    flex: 1;
+}
+
+/*.page {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -75,3 +114,4 @@ main {
         padding-right: 1.5rem !important;
     }
 }
+*/

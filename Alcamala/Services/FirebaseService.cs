@@ -14,7 +14,7 @@ public class FirebaseService
     private IJSRuntime JSRuntime { get; }
     private FirebaseAuthenticationStateProvider _firebaseAuthenticationStateProvider;
 
-    private DotNetObjectReference<FirebaseService> _ref;
+    private readonly DotNetObjectReference<FirebaseService> _ref;
 
     public FirebaseService(IJSRuntime jSRuntime, FirebaseAuthenticationStateProvider firebaseAuthenticationStateProvider)
     {

@@ -1,16 +1,50 @@
-﻿@inherits LayoutComponentBase
+﻿@using ElysiumBlazor.Services
+@inherits LayoutComponentBase
+
+@inject NavigationManager nav
+@inject FirebaseService fire
+@inject DeviceInfoService deviceInfoService
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+
+        if (firstRender)
+        {
+            var deviceInfo = await deviceInfoService.GetDeviceInfo();
+        }
+    }
+}
+
 <div class="page">
-    <div class="sidebar">
-        <NavMenu/>
+    <div class="navbar">
+        <div class="app-logo">
+            <img src="/icon-512.png" />
+        </div>
+        <ElysiumNavBar>
+            @* <ElysiumNavItem Href="lists" Icon="@Icons.Material.Outlined.List" Label="@AppResources.Lists" />
+            <ElysiumNavItem Href="drinks" Icon="@Icons.Material.Outlined.LocalDrink" Label="@AppResources.Drinks" />
+            <ElysiumNavItem Href="weight" Icon="@Icons.Material.Outlined.Scale" Label="@AppResources.Weight" />
+            <ElysiumNavItem Href="notes" Icon="@Icons.Material.Outlined.Notes" Label="@AppResources.Notes" />
+            <ElysiumNavItem Href="profile" Icon="@Icons.Material.Outlined.Person" Label="@AppResources.Profile" /> *@
+        </ElysiumNavBar>
     </div>
 
+    @* <div class="sidebar">
+        <NavMenu />
+    </div> *@
+
     <main>
-        <div class="top-row px-4 auth">
+        <ElysiumAppBar Title="@nav.Uri" />
+
+        @* <div class="top-row px-4 auth">
             <LoginDisplay/>
             <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
+        </div> *@
 
-        <article class="content px-4">
+        <article class="page-content">
+            <ElysiumTextButton Text="Log Out" OnClick="() => fire.LogOutAsync()" />
             @Body
         </article>
     </main>

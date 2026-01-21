@@ -1,0 +1,36 @@
+﻿@page "/Profile"
+
+@inject NavigationManager NavigationManager
+@inject ElysiumThemeService ElysiumThemeService
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        // NavigationManager.NavigateTo("profile");
+    }
+
+    private void SetBlueTheme()
+    {
+        ElysiumThemeService.SetThemeAsync(ElysiumThemePresets.BlueTheme);
+    }
+
+    private void SetLavenderTheme()
+    {
+        ElysiumThemeService.SetThemeAsync(ElysiumThemePresets.LavenderTheme);
+    }
+}
+
+<PageTitle>Profile</PageTitle>
+
+<h1>Hello, Profile!</h1>
+
+<div class="alert alert-warning" role="alert">
+    Before authentication will function correctly, you must configure your provider details in <code>Program.cs</code>
+</div>
+
+Welcome to your new app.
+<br/>
+<ElysiumTextButton ColorType="ColorType.Primary" OnClick="@SetBlueTheme" Text="Set Blue Theme"/>
+<br/>
+<ElysiumTextButton ColorType="ColorType.Secondary" OnClick="@SetLavenderTheme" Text="Set Lavender Theme" />

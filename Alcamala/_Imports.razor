@@ -1,5 +1,6 @@
 ﻿@using Alcamala
 @using Alcamala.Layout
+@using Alcamala.Resources;
 @using Alcamala.Services
 @using ElysiumBlazor.Components
 @using ElysiumBlazor.Components.Buttons
@@ -7,9 +8,12 @@
 @using ElysiumBlazor.Components.Inputs
 @using ElysiumBlazor.Components.Search
 @using ElysiumBlazor.Components.UI
+@using ElysiumBlazor.Components.UI.Navigation
 @using ElysiumBlazor.Enums
 @using ElysiumBlazor.Extensions
 @using ElysiumBlazor.Icons
+@using ElysiumBlazor.Services
+@using ElysiumBlazor.Themes
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.AspNetCore.Components.Forms
@@ -20,3 +24,5 @@
 @using Microsoft.JSInterop
 @using System.Net.Http
 @using System.Net.Http.Json
+
+@attribute [Authorize]

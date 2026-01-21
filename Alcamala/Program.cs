@@ -1,5 +1,6 @@
 using Alcamala.Services;
 using Blazored.LocalStorage;
+using ElysiumBlazor.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -18,7 +19,11 @@ public class Program
 
         builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
+        builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
         ConfigureFirebaseServices(builder.Services);
+
+        ConfigureElysiumServices(builder.Services);
 
         builder.Services.AddOidcAuthentication(options =>
         {
@@ -35,5 +40,11 @@ public class Program
         services.AddScoped<FirebaseAuthenticationStateProvider>();
         services.AddScoped<AuthenticationStateProvider>(s => s.GetRequiredService<FirebaseAuthenticationStateProvider>());
         services.AddScoped<FirebaseService>();
+    }
+
+    private static void ConfigureElysiumServices(IServiceCollection services)
+    {
+        services.AddSingleton<DeviceInfoService>();
+        services.AddSingleton<ElysiumThemeService>();
     }
 }

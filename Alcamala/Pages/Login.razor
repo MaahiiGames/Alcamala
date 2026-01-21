@@ -7,13 +7,15 @@
 <PageTitle>Login</PageTitle>
 
 <div class="login-page">
+    <ElysiumCard Title="Log in">
+        <div style="display: flex; flex-direction: column; justify-content: start; align-items: center; gap: 0.5rem;">
+            <ElysiumTextInput Label="Email" @bind-Value="@_email" />
+            <ElysiumPasswordInput Label="Password" @bind-Value="@_password" />
 
-    <ElysiumCard Title="Log in" Collapsible="true" Style="width: 500px; height: 500px;">
-        <ElysiumTextInput Label="Email" @bind-Value="@_email" />
-        <ElysiumTextInput Label="Password" @bind-Value="@_password" />
-
-        <ElysiumTextButton Text="Log in" OnClick="OnClickLogIn" />
-        <ElysiumTextButton Text="Log out" OnClick="OnClickLogOut" />
+            <div style="width: 100%; display: flex; flex-direction: row; justify-content: space-evenly;">
+                <ElysiumTextButton ColorType="ColorType.Primary" Text="@AppResources.LogIn" OnClick="OnClickLogIn" />
+                <ElysiumTextButton ColorType="ColorType.Secondary" Text="@AppResources.LogOut" OnClick="OnClickLogOut" />
+            </div>
+        </div>
     </ElysiumCard>
-
 </div>
